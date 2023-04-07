@@ -1,1 +1,2 @@
-# adp3group15Project![Hire A Painter ERD](https://user-images.githubusercontent.com/88936431/230455599-c8f76006-b489-4e5e-a478-2f1cc93eea95.jpg)
+# adp3group15Project
+![HireAPainterERD](https://user-images.githubusercontent.com/88936431/230563871-948cbfb5-cb7b-4278-94b1-0755d53214f0.jpg)
