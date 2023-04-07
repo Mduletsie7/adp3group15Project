@@ -8,8 +8,6 @@
 package za.ac.cput.repository;
 
 
-import za.ac.cput.domain.Address;
-import za.ac.cput.domain.Consultant;
 import za.ac.cput.domain.ConsultantAddress;
 
 import java.util.HashSet;
@@ -40,15 +38,10 @@ public class ConsultantAddressRepository implements IConsultantAddressRepository
     }
 
     @Override
-    public ConsultantAddress read(Consultant consultantId, Address addressId) {
+    public ConsultantAddress read(String addressId) {
         // Lambda expressions Java 8
         ConsultantAddress consultantAddress = consultantAddressDB.stream()
-                .filter(e -> e.getConsultantId().equals(consultantId))
-                .findAny()
-                .orElse(null);
-
-        consultantAddressDB.stream()
-                .filter(e -> e.getAddressId().equals(addressId))
+                .filter(p -> p.getAddressId().equals(addressId))
                 .findAny()
                 .orElse(null);
         return consultantAddress;
@@ -56,8 +49,8 @@ public class ConsultantAddressRepository implements IConsultantAddressRepository
 
     @Override
     public ConsultantAddress update(ConsultantAddress consultantAddress) {
-        ConsultantAddress oldConsultantAddress = read(consultantAddress.getConsultantId());
-        read(consultantAddress.getAddressId());
+        ConsultantAddress oldConsultantAddress = read(consultantAddress.getAddressId().toString());
+        read(consultantAddress.getAddressId().toString());
         if (oldConsultantAddress != null){
             consultantAddressDB.remove(oldConsultantAddress);
             consultantAddressDB.add(consultantAddress);
@@ -67,9 +60,9 @@ public class ConsultantAddressRepository implements IConsultantAddressRepository
     }
 
     @Override
-    public boolean delete(Consultant consultantId, Address addressId) {
-        ConsultantAddress consultantAddressToDelete = read(String.valueOf(consultantId));
-        read(String.valueOf(addressId));
+    public boolean delete(String consultantAddressId) {
+        ConsultantAddress consultantAddressToDelete = read(String.valueOf(consultantAddressId));
+        read(String.valueOf(consultantAddressId));
         if (consultantAddressToDelete == null){
             return false;
         }
