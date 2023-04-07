@@ -4,14 +4,14 @@ import java.util.Objects;
 
 public class Service {
     private String serviceName;
-    private String serviceNo;
+    private String serviceId;
     public Service() {}
 
     // Add private constructor
 
     private Service(Service.Builder builder) {
         this.serviceName = builder.serviceName;
-        this.serviceNo = builder.serviceNo;
+        this.serviceId = builder.serviceId;
 
     }
 
@@ -20,12 +20,12 @@ public class Service {
     }
 
     public String getServiceId() {
-        return serviceNo;
+        return serviceId;
     }
 
     public static class Builder {
         private String serviceName;
-        private String serviceNo;
+        private String serviceId;
 
         // SETTERS
         public Service.Builder setServiceName(String serviceName) {
@@ -33,14 +33,14 @@ public class Service {
             return this;
         }
 
-        public Service.Builder setServiceNo(String serviceNo) {
-            this.serviceNo = serviceNo;
+        public Service.Builder setServiceId(String serviceId) {
+            this.serviceId = serviceId;
             return this;
         }
 
         public Service.Builder copy(Service service) {
             this.serviceName = service.serviceName;
-            this.serviceNo = service.serviceNo;
+            this.serviceId = service.serviceId;
 
             return this;
         }
@@ -55,19 +55,19 @@ public class Service {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Service service = (Service) o;
-        return Objects.equals(serviceName, service.serviceName) && Objects.equals(serviceNo, service.serviceNo);
+        return Objects.equals(serviceName, service.serviceName) && Objects.equals(serviceId, service.serviceId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(serviceName, serviceNo);
+        return Objects.hash(serviceName, serviceId);
     }
 
     @Override
     public String toString() {
         return "Service{" +
                 "serviceName='" + serviceName + '\'' +
-                ", serviceId='" + serviceNo + '\'' +
+                ", serviceId='" + serviceId + '\'' +
                 '}';
     }
 }

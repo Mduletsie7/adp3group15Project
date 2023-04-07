@@ -76,6 +76,11 @@ public class Painter {
             return this;
         }
 
+        public Builder setPhoneNumber(String phoneNumber) {
+            this.phoneNumber = phoneNumber;
+            return this;
+        }
+
         public Builder copy(Painter painter) {
             this.firstName = painter.firstName;
             this.lastName = painter.lastName;
