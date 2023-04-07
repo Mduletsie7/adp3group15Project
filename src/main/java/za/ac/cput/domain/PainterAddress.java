@@ -43,7 +43,7 @@ public class PainterAddress {
             this.painterId = painterId;
             return this;
         }
-        public PainterAddress.Builder setaddressId(String addressId) {
+        public PainterAddress.Builder setAddressId(String addressId) {
             this.addressId = addressId;
             return this;
         }
