@@ -1,3 +1,10 @@
+/**
+ * JobRepository.java
+ * This is the JobRepository Class
+ * @author Mdumisi Kelvin Letsie - 220120137
+ * 07 April 2023
+ */
+
 package za.ac.cput.repository;
 
 import za.ac.cput.domain.Job;

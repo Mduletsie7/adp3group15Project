@@ -1,3 +1,10 @@
+/**
+ * PainterRepositoryTest.java
+ * This is the PainterRepositoryTest Class
+ * @author Mdumisi Kelvin Letsie - 220120137
+ * 08 April 2023
+ */
+
 package za.ac.cput.repository;
 
 import org.junit.jupiter.api.MethodOrderer;

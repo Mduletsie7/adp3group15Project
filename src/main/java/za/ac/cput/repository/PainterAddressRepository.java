@@ -1,3 +1,10 @@
+/**
+ * PainterAddressRepository.java
+ * This is the PainterAddressRepository Class
+ * @author Mdumisi Kelvin Letsie - 220120137
+ * 07 April 2023
+ */
+
 package za.ac.cput.repository;
 
 import za.ac.cput.domain.*;
