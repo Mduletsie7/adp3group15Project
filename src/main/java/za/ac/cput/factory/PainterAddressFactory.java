@@ -1,3 +1,10 @@
+/**
+ * PainterAddressFactory.java
+ * This is the PainterAddressFactory Class
+ * @author Mdumisi Kelvin Letsie - 220120137
+ * 07 April 2023
+ */
+
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.PainterAddress;

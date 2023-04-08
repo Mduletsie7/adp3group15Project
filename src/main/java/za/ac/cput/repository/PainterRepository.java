@@ -1,6 +1,6 @@
 /**
  * PainterRepository.java
- * This is the PainterRepository POJO
+ * This is the PainterRepository Class
  * @author Mdumisi Kelvin Letsie - 220120137
  * 07 April 2023
  */
