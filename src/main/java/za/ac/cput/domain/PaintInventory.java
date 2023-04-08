@@ -13,13 +13,12 @@ public class PaintInventory {
     private String transHistory;
     private  String amtAvailable;
 
-    public PaintInventory() {
-    }
+    public PaintInventory() {}
 
-    public PaintInventory(Builder builder) {
-        this.colorId = colorId;
-        this.transHistory = transHistory;
-        this.amtAvailable = amtAvailable;
+    public PaintInventory(PaintInventory.Builder builder) {
+        this.colorId = Builder.colorId;
+        this.transHistory = Builder.transHistory;
+        this.amtAvailable = Builder.amtAvailable;
     }
 
     public String getColorId() {
@@ -31,20 +30,21 @@ public class PaintInventory {
     public String getAmtAvailable() {
         return amtAvailable;
     }
-    private class Builder {
-        private String colorId;
-        private String transHistory;
-        private  String amtAvailable;
-        public Builder setColorId(String colorId) {
+    public static class Builder {
+        private static String colorId;
+        private static String transHistory;
+        private static String amtAvailable;
+        public PaintInventory.Builder setColorId(String colorId) {
             this.colorId = colorId;
             return this;
         }
-        public Builder setTransHistory(String transHistory) {
+        public PaintInventory.Builder setTransHistory(String transHistory) {
             this.transHistory = transHistory;
             return this;
         }
-        public void setAmtAvailable(String amtAvailable) {
+        public PaintInventory.Builder setAmtAvailable(String amtAvailable) {
             this.amtAvailable = amtAvailable;
+            return this;
         }
 
         public Builder copy(PaintInventory paintInventory) {
@@ -53,7 +53,9 @@ public class PaintInventory {
             this.amtAvailable = paintInventory.amtAvailable;
             return this;
         }
-        public PaintInventory build(){return new PaintInventory(this);}
+        public PaintInventory build(){
+            return new PaintInventory(this);
+        }
     }
     public boolean equals(Object obj){
         if(this == obj) return true;

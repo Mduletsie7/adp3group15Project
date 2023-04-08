@@ -10,20 +10,20 @@ import java.util.Objects;
 * */
 
 public class Supplier {
-    private String supplierId;
-    private String companyName;
-    private String phoneNumber;
-    private String emailAddress;
-    private String pickupAddress;
+    private static String supplierId;
+    private static String companyName;
+    private static String phoneNumber;
+    private static String emailAddress;
+    private static String pickupAddress;
 
     public Supplier() {
     }
     public Supplier(Builder builder) {
-        this.supplierId = supplierId;
-        this.companyName = companyName;
-        this.phoneNumber = phoneNumber;
-        this.emailAddress = emailAddress;
-        this.pickupAddress = pickupAddress;
+        this.supplierId = Supplier.supplierId;
+        this.companyName = Supplier.companyName;
+        this.phoneNumber = Supplier.phoneNumber;
+        this.emailAddress = Supplier.emailAddress;
+        this.pickupAddress = Supplier.pickupAddress;
     }
     public String getSupplierId() {
         return supplierId;
@@ -40,34 +40,33 @@ public class Supplier {
     public String getPickupAddress() {
         return pickupAddress;
     }
-    private static class Builder {
+    public static class Builder {
         private String supplierId;
         private String companyName;
         private String phoneNumber;
         private String emailAddress;
         private String pickupAddress;
 
-        public Builder setSupplierId(String supplierId) {
+        public Supplier.Builder setSupplierId(String supplierId) {
             this.supplierId = supplierId;
             return this;
         }
-        public Builder setCompanyName(String companyName) {
+        public Supplier.Builder setCompanyName(String companyName) {
             this.companyName = companyName;
             return this;
         }
-        public Builder setPhoneNumber(String phoneNumber) {
+        public Supplier.Builder setPhoneNumber(String phoneNumber) {
             this.phoneNumber = phoneNumber;
             return this;
         }
-        public Builder setEmailAddress(String emailAddress) {
+        public Supplier.Builder setEmailAddress(String emailAddress) {
             this.emailAddress = emailAddress;
             return this;
         }
-        public Builder setPickupAddress(String pickupAddress) {
+        public Supplier.Builder setPickupAddress(String pickupAddress) {
             this.pickupAddress = pickupAddress;
             return this;
         }
-
         public Builder copy(Supplier supplier) {
             this.supplierId = supplier.supplierId;
             this.companyName = supplier.companyName;
@@ -80,7 +79,6 @@ public class Supplier {
             return  new Supplier(this);
         }
     }
-
     @Override
     public boolean equals(Object obj) {
         if(this == obj) return true;

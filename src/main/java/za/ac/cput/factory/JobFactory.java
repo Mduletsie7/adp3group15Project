@@ -4,8 +4,8 @@ import za.ac.cput.domain.Job;
 import za.ac.cput.util.Helper;
 
 public class JobFactory {
-    public static Job createJob(String quoteNo, String startDate, String endDate, String invoiceNo, String painterId) {
-        if (Helper.isNullOrEmpty(quoteNo) || Helper.isNullOrEmpty(startDate) || Helper.isNullOrEmpty(endDate) || Helper.isNullOrEmpty(invoiceNo)
+    public static Job createJob(String quoteNo, String startDate, String endDate, String transactionHistory, String painterId) {
+        if (Helper.isNullOrEmpty(quoteNo) || Helper.isNullOrEmpty(startDate) || Helper.isNullOrEmpty(endDate) || Helper.isNullOrEmpty(transactionHistory)
                 || Helper.isNullOrEmpty(painterId)) {
             return null;
         }
@@ -17,7 +17,7 @@ public class JobFactory {
                 .setQuoteNo(quoteNo)
                 .setStartDate(startDate)
                 .setEndDate(endDate)
-                .setInvoiceNo(invoiceNo)
+                .setTransactionHistory(transactionHistory)
                 .setPainterId(painterId)
                 .setJobNo(jobNo)
                 .build();

@@ -15,9 +15,9 @@ public class SuppPickupAddress {
     public SuppPickupAddress() {
     }
     public SuppPickupAddress(SuppPickupAddress.Builder builder) {
-        this.suppAddress = suppAddress;
-        this.supplierId = supplierId;
-        this.addressId = addressId;
+        this.suppAddress = Builder.suppAddress;
+        this.supplierId = Builder.supplierId;
+        this.addressId = Builder.addressId;
     }
     public String getSuppAddress() {
         return suppAddress;
@@ -28,10 +28,10 @@ public class SuppPickupAddress {
     public String getAddressId() {
         return addressId;
     }
-    private class Builder {
-        private String suppAddress;
-        private  String supplierId;
-        private  String addressId;
+    public static class Builder {
+        private static String suppAddress;
+        private static String supplierId;
+        private static String addressId;
         public SuppPickupAddress.Builder setSuppAddress(String suppAddress) {
             this.suppAddress = suppAddress;
             return this;

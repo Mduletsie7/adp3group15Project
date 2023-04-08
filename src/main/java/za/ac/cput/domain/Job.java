@@ -8,7 +8,7 @@ public class Job {
     private String quoteNo;
     private String startDate;
     private String endDate;
-    private String invoiceNo;
+    private String transactionHistory;
     private String painterId;
     private String jobNo;
 
@@ -20,7 +20,7 @@ public class Job {
         this.quoteNo = builder.quoteNo;
         this.startDate = builder.startDate;
         this.endDate = builder.endDate;
-        this.invoiceNo = builder.invoiceNo;
+        this.transactionHistory = builder.transactionHistory;
         this.painterId = builder.painterId;
         this.jobNo = builder.jobNo;
     }
@@ -37,8 +37,8 @@ public class Job {
         return endDate;
     }
 
-    public String getInvoiceNo()  {
-        return invoiceNo;
+    public String getTransactionHistory()  {
+        return transactionHistory;
     }
     public String getPainterId() {
         return painterId;
@@ -52,7 +52,7 @@ public class Job {
         private String quoteNo;
         private String startDate;
         private String endDate;
-        private  String invoiceNo;
+        private  String transactionHistory;
         private  String painterId;
         private  String jobNo;
 
@@ -73,8 +73,8 @@ public class Job {
             return this;
         }
 
-        public Builder setInvoiceNo(String invoiceNo) {
-            this.invoiceNo = invoiceNo;
+        public Builder setTransactionHistory(String transactionHistory) {
+            this.transactionHistory = transactionHistory;
             return this;
         }
 
@@ -92,7 +92,7 @@ public class Job {
             this.quoteNo = job.quoteNo;
             this.startDate = job.startDate;
             this.endDate = job.endDate;
-            this.invoiceNo = job.invoiceNo;
+            this.transactionHistory = job.transactionHistory;
             this.painterId = job.painterId;
             this.jobNo = job.jobNo;
             return this;
@@ -108,12 +108,12 @@ public class Job {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
-        return Objects.equals(quoteNo, job.quoteNo) && Objects.equals(startDate, job.startDate) && Objects.equals(endDate, job.endDate) && Objects.equals(invoiceNo, job.invoiceNo) && Objects.equals(painterId, job.painterId) && Objects.equals(jobNo, job.jobNo);
+        return Objects.equals(quoteNo, job.quoteNo) && Objects.equals(startDate, job.startDate) && Objects.equals(endDate, job.endDate) && Objects.equals(transactionHistory, job.transactionHistory) && Objects.equals(painterId, job.painterId) && Objects.equals(jobNo, job.jobNo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(quoteNo, startDate, endDate, invoiceNo, painterId, jobNo);
+        return Objects.hash(quoteNo, startDate, endDate, transactionHistory, painterId, jobNo);
     }
 
     @Override
@@ -122,7 +122,7 @@ public class Job {
                 "quote='" + quoteNo + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
-                ", invoice='" + invoiceNo + '\'' +
+                ", TransactionHistoryFactory'" + transactionHistory + '\'' +
                 ", painterId='" + painterId + '\'' +
                 ", jobNo='" + jobNo + '\'' +
                 '}';

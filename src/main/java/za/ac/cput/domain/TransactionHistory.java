@@ -18,43 +18,46 @@ public class TransactionHistory {
     }
 
     public TransactionHistory(Builder builder) {
-        this.transNo = transNo;
-        this.supplierId = supplierId;
-        this.transDate = transDate;
-        this.orderTotal = orderTotal;
+        this.transNo = Builder.transNo;
+        this.supplierId = Builder.supplierId;
+        this.transDate = Builder.transDate;
+        this.orderTotal = Builder.orderTotal;
     }
 
     public String getTransNo() {
         return transNo;
     }
+
     public String getSupplierId() {
         return supplierId;
     }
+
     public String getTransDate() {
         return transDate;
     }
+
     public String getOrderTotal() {
         return orderTotal;
     }
-    private static class Builder {
-        private String transNo;
-        private String supplierId;
-        private String transDate;
-        private  String orderTotal;
 
-        public Builder setTransNo(String transNo) {
+    public static class Builder {
+        private static String transNo;
+        private static String supplierId;
+        private static String transDate;
+        private static String orderTotal;
+        public TransactionHistory.Builder setTransNo(String transNo) {
             this.transNo = transNo;
             return this;
         }
-        public Builder setSupplierId(String supplierId) {
+        public TransactionHistory.Builder setSupplierId(String supplierId) {
             this.supplierId = supplierId;
             return this;
         }
-        public Builder setTransDate(String transDate) {
+        public TransactionHistory.Builder setTransDate(String transDate) {
             this.transDate = transDate;
             return this;
         }
-        public Builder setOrderTotal(String orderTotal) {
+        public TransactionHistory.Builder setOrderTotal(String orderTotal) {
             this.orderTotal = orderTotal;
             return this;
         }
@@ -85,7 +88,7 @@ public class TransactionHistory {
 
     @Override
     public String toString() {
-        return "TransactionHistory{" +
+        return "TransactionHistoryFactory{" +
                 "transNo='" + transNo + '\'' +
                 ", supplierId='" + supplierId + '\'' +
                 ", transDate='" + transDate + '\'' +
