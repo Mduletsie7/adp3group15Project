@@ -71,6 +71,11 @@ public class Painter {
             return this;
         }
 
+        public Builder setAddress(String address) {
+            this.address = address;
+            return this;
+        }
+
         public Builder setEmail(String email) {
             this.email = email;
             return this;
