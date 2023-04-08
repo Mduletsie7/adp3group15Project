@@ -39,7 +39,7 @@ public class PainterRepository implements IPainterRepository {
     public Painter read(String painterId) {
         // Lambda expressions Java 8
         Painter painter = painterDB.stream()
-                .filter(e -> e.getFirstName().equals(painterId))
+                .filter(e -> e.getPainterId().equals(painterId))
                 .findAny()
                 .orElse(null);
         return painter;
