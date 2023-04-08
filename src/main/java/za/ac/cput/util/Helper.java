@@ -17,6 +17,7 @@ public class Helper {
         return UUID.randomUUID().toString();
     }
 
+
     public static String generateJobNumber() {
         Random rand = new Random();
         String start = "Job";
@@ -36,4 +37,5 @@ public class Helper {
         EmailValidator ev = EmailValidator.getInstance();
         return ev.isValid(email);
     }
+
 }
