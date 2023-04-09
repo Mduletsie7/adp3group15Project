@@ -6,20 +6,23 @@ package za.ac.cput.factory;
  * 07 April 2023
  */
 import za.ac.cput.domain.Address;
+import za.ac.cput.domain.Consultant;
 import za.ac.cput.util.Helper;
 
 public class AddressFactory {
 
-    public static Address createAddress(String streetNumber,String streetName, String city, String zipCode, String province) {
-        String addressId = Helper.generateId();
-        if (Helper.isNullOrEmpty(streetNumber) || Helper.isNullOrEmpty(streetName) || Helper.isNullOrEmpty(city) || Helper.isNullOrEmpty(zipCode) || Helper.isNullOrEmpty(province)) {
+    public static Address createAddress(String streetNumber, String streetName, String city, String zipCode, String province) {
+        if (Helper.isNullOrEmpty(streetNumber) || Helper.isNullOrEmpty(streetName) || Helper.isNullOrEmpty(province)) {
             return null;
         }
 
+        String addressId = Helper.generateId();
+
+
         Address address = new Address.Builder()
-                .setAddressId(addressId)
                 .setStreetNumber(streetNumber)
-                .setStreetName(streetName)
+                .setStreetNane(streetName)
+                .setAddressId(addressId)
                 .setCity(city)
                 .setZipCode(zipCode)
                 .setProvince(province)
