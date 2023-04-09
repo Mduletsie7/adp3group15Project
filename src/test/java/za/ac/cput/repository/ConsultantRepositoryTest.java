@@ -1,3 +1,10 @@
+/**
+ * ConsultantRepositoryTest.java
+ * This is the ConsultantRepositoryTest Class
+ * @author Lerato Moshabi - 220076073
+ * 08 April 2023
+ */
+
 package za.ac.cput.repository;
 
 import org.junit.jupiter.api.MethodOrderer;
