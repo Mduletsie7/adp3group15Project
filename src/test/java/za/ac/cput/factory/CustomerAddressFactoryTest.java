@@ -21,7 +21,7 @@ public class CustomerAddressFactoryTest {
         customerAddress = CustomerAddressFactory.createCustomerAddress("5", "5");
      //   assertEquals(customerAddress.getCustomerId(), "6");
         assertEquals(customerAddress.getCustomerId(), "5");
-
+        
     }
 
     @Test
