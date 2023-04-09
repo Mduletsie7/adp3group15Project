@@ -4,14 +4,13 @@ Tests CustomerRepository
 Author: Anesu Bandama(221295755)
 Date: 8 April 2023
 */
-package za.ac.cput;
+package za.ac.cput.repository;
 
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.factory.CustomerFactory;
-import za.ac.cput.repository.CustomerRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
