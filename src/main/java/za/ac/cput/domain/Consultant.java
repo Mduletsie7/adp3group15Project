@@ -118,7 +118,7 @@ public class Consultant {
 
     @Override
     public String toString() {
-        return "Painter{" +
+        return "Consultant{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
