@@ -14,7 +14,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ConsultantAddressRepository implements IConsultantAddressRepository{
-    private static ConsultantAddressRepository repository = null;
+    private static ConsultantAddressRepository ConsultantAddressRepository = null;
     private Set<ConsultantAddress> consultantAddressDB = null;
 
     private ConsultantAddressRepository(){
@@ -22,10 +22,10 @@ public class ConsultantAddressRepository implements IConsultantAddressRepository
     }
 
     public static ConsultantAddressRepository getRepository(){
-        if(repository == null) {
-            repository = new ConsultantAddressRepository();
+        if(ConsultantAddressRepository == null) {
+            ConsultantAddressRepository = new ConsultantAddressRepository();
         }
-        return repository;
+        return ConsultantAddressRepository;
     }
 
     @Override
@@ -38,10 +38,10 @@ public class ConsultantAddressRepository implements IConsultantAddressRepository
     }
 
     @Override
-    public ConsultantAddress read(String addressId) {
+    public ConsultantAddress read(String consultantAddressId) {
         // Lambda expressions Java 8
         ConsultantAddress consultantAddress = consultantAddressDB.stream()
-                .filter(p -> p.getAddressId().equals(addressId))
+                .filter(p -> p.getConsultantAddressId().equals(consultantAddressId))
                 .findAny()
                 .orElse(null);
         return consultantAddress;
@@ -49,8 +49,8 @@ public class ConsultantAddressRepository implements IConsultantAddressRepository
 
     @Override
     public ConsultantAddress update(ConsultantAddress consultantAddress) {
-        ConsultantAddress oldConsultantAddress = read(consultantAddress.getAddressId().toString());
-        read(consultantAddress.getAddressId().toString());
+        ConsultantAddress oldConsultantAddress = read(consultantAddress.getConsultantAddressId());
+        read(consultantAddress.getConsultantAddressId());
         if (oldConsultantAddress != null){
             consultantAddressDB.remove(oldConsultantAddress);
             consultantAddressDB.add(consultantAddress);
@@ -61,8 +61,7 @@ public class ConsultantAddressRepository implements IConsultantAddressRepository
 
     @Override
     public boolean delete(String consultantAddressId) {
-        ConsultantAddress consultantAddressToDelete = read(String.valueOf(consultantAddressId));
-        read(String.valueOf(consultantAddressId));
+        ConsultantAddress consultantAddressToDelete = read(consultantAddressId);
         if (consultantAddressToDelete == null){
             return false;
         }
