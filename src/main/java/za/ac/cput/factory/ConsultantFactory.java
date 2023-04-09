@@ -12,19 +12,24 @@ import za.ac.cput.util.Helper;
 
 public class ConsultantFactory {
 
-    public static Consultant createConsultant(String firstName, String lastName, String phoneNumber, String email, String address) {
+    public static Consultant createConsultant(String firstName, String lastName, String address, String email, String phoneNumber) {
+        if (Helper.isNullOrEmpty(firstName) || Helper.isNullOrEmpty(lastName) || Helper.isNullOrEmpty(phoneNumber)) {
+            return null;
+        }
+
         String consultantId = Helper.generateId();
-        if (Helper.isNullOrEmpty(firstName) || Helper.isNullOrEmpty(lastName) || Helper.isNullOrEmpty(phoneNumber) || Helper.isNullOrEmpty(String.valueOf(email)) || Helper.isNullOrEmpty(address)) {
+
+        if(!Helper.isValidEmail(email)) {
             return null;
         }
 
         Consultant consultant = new Consultant.Builder()
-                .setConsultantId(consultantId)
                 .setFirstName(firstName)
                 .setLastName(lastName)
-                .setPhoneNumber(phoneNumber)
-                .setEmail(email)
+                .setConsultantId(consultantId)
                 .setAddress(address)
+                .setEmail(email)
+                .setPhoneNumber(phoneNumber)
                 .build();
 
         return consultant;

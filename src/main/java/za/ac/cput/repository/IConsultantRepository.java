@@ -7,7 +7,6 @@
 
 package za.ac.cput.repository;
 
-import za.ac.cput.domain.Address;
 import za.ac.cput.domain.Consultant;
 
 import java.util.Set;

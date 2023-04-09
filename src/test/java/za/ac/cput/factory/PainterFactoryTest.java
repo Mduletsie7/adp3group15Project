@@ -1,3 +1,10 @@
+/**
+ * PainterFactoryTest.java
+ * This is the PainterFactoryTest Class
+ * @author Mdumisi Kelvin Letsie - 220120137
+ * 07 April 2023
+ */
+
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Disabled;
@@ -13,7 +20,7 @@ class PainterFactoryTest {
         // i. Object Equality Test
         @Test
         public void test_PainterEquality() {
-            Painter painter1 = PainterFactory.createPainter("","","","");
+            Painter painter1 = PainterFactory.createPainter("","","","","");
             String painterId = painter.getPainterId().toString();
             assertEquals(painter1.getPainterId(), painterId);
         }
@@ -21,9 +28,9 @@ class PainterFactoryTest {
         // ii. Object Identity Test
         @Test
         public void test_ObjectIdentity() {
-            Painter painter1 = PainterFactory.createPainter("","","","");
+            Painter painter1 = PainterFactory.createPainter("","","","","");
             Painter painter2 = painter1;
-            Painter painter3 = PainterFactory.createPainter("","","","");
+            Painter painter3 = PainterFactory.createPainter("","","","","");
 
             assertSame(painter1, painter3);
         }
@@ -31,7 +38,7 @@ class PainterFactoryTest {
         // iii. Product build Failing TEST
         @Test
         public void test_fail() {
-            Painter painter1 = PainterFactory.createPainter("","","","");
+            Painter painter1 = PainterFactory.createPainter("","","","","");
             assertNotNull(painter1);
             System.out.println(painter1.toString());
         }

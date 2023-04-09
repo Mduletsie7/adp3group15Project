@@ -8,11 +8,12 @@
 package za.ac.cput.repository;
 
 import za.ac.cput.domain.Consultant;
+
 import java.util.HashSet;
 import java.util.Set;
 
 public class ConsultantRepository implements IConsultantRepository{
-    private static ConsultantRepository repository = null;
+    private static ConsultantRepository consultantRepositoryRepository = null;
     private Set<Consultant> consultantDB = null;
 
     private ConsultantRepository(){
@@ -20,10 +21,10 @@ public class ConsultantRepository implements IConsultantRepository{
     }
 
     public static ConsultantRepository getRepository(){
-        if(repository == null) {
-            repository = new ConsultantRepository();
+        if(consultantRepositoryRepository == null) {
+            consultantRepositoryRepository = new ConsultantRepository();
         }
-        return repository;
+        return consultantRepositoryRepository;
     }
 
     @Override
@@ -39,7 +40,7 @@ public class ConsultantRepository implements IConsultantRepository{
     public Consultant read(String consultantId) {
         // Lambda expressions Java 8
         Consultant consultant = consultantDB.stream()
-                .filter(e -> e.getFirstName().equals(consultantId))
+                .filter(e -> e.getConsultantId().equals(consultantId))
                 .findAny()
                 .orElse(null);
         return consultant;

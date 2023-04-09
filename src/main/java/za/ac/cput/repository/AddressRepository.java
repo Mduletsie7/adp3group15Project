@@ -9,12 +9,13 @@ package za.ac.cput.repository;
 
 
 import za.ac.cput.domain.Address;
+import za.ac.cput.domain.Consultant;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class AddressRepository implements IAddressRepository{
-    private static AddressRepository repository = null;
+    private static AddressRepository addressRepositoryRepository = null;
     private Set<Address> addressDB = null;
 
     private AddressRepository(){
@@ -22,10 +23,10 @@ public class AddressRepository implements IAddressRepository{
     }
 
     public static AddressRepository getRepository(){
-        if(repository == null) {
-            repository = new AddressRepository();
+        if(addressRepositoryRepository == null) {
+            addressRepositoryRepository = new AddressRepository();
         }
-        return repository;
+        return addressRepositoryRepository;
     }
 
     @Override
@@ -41,7 +42,7 @@ public class AddressRepository implements IAddressRepository{
     public Address read(String addressId) {
         // Lambda expressions Java 8
         Address address = addressDB.stream()
-                .filter(e -> e.getStreetNumber().equals(addressId))
+                .filter(e -> e.getAddressId().equals(addressId))
                 .findAny()
                 .orElse(null);
         return address;

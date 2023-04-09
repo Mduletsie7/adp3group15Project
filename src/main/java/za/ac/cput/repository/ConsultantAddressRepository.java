@@ -8,15 +8,13 @@
 package za.ac.cput.repository;
 
 
-import za.ac.cput.domain.Address;
-import za.ac.cput.domain.Consultant;
 import za.ac.cput.domain.ConsultantAddress;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class ConsultantAddressRepository implements IConsultantAddressRepository{
-    private static ConsultantAddressRepository repository = null;
+    private static ConsultantAddressRepository ConsultantAddressRepository = null;
     private Set<ConsultantAddress> consultantAddressDB = null;
 
     private ConsultantAddressRepository(){
@@ -24,10 +22,10 @@ public class ConsultantAddressRepository implements IConsultantAddressRepository
     }
 
     public static ConsultantAddressRepository getRepository(){
-        if(repository == null) {
-            repository = new ConsultantAddressRepository();
+        if(ConsultantAddressRepository == null) {
+            ConsultantAddressRepository = new ConsultantAddressRepository();
         }
-        return repository;
+        return ConsultantAddressRepository;
     }
 
     @Override
@@ -40,15 +38,10 @@ public class ConsultantAddressRepository implements IConsultantAddressRepository
     }
 
     @Override
-    public ConsultantAddress read(Consultant consultantId, Address addressId) {
+    public ConsultantAddress read(String consultantAddressId) {
         // Lambda expressions Java 8
         ConsultantAddress consultantAddress = consultantAddressDB.stream()
-                .filter(e -> e.getConsultantId().equals(consultantId))
-                .findAny()
-                .orElse(null);
-
-        consultantAddressDB.stream()
-                .filter(e -> e.getAddressId().equals(addressId))
+                .filter(p -> p.getConsultantAddressId().equals(consultantAddressId))
                 .findAny()
                 .orElse(null);
         return consultantAddress;
@@ -56,8 +49,8 @@ public class ConsultantAddressRepository implements IConsultantAddressRepository
 
     @Override
     public ConsultantAddress update(ConsultantAddress consultantAddress) {
-        ConsultantAddress oldConsultantAddress = read(consultantAddress.getConsultantId());
-        read(consultantAddress.getAddressId());
+        ConsultantAddress oldConsultantAddress = read(consultantAddress.getConsultantAddressId());
+        read(consultantAddress.getConsultantAddressId());
         if (oldConsultantAddress != null){
             consultantAddressDB.remove(oldConsultantAddress);
             consultantAddressDB.add(consultantAddress);
@@ -67,9 +60,8 @@ public class ConsultantAddressRepository implements IConsultantAddressRepository
     }
 
     @Override
-    public boolean delete(Consultant consultantId, Address addressId) {
-        ConsultantAddress consultantAddressToDelete = read(String.valueOf(consultantId));
-        read(String.valueOf(addressId));
+    public boolean delete(String consultantAddressId) {
+        ConsultantAddress consultantAddressToDelete = read(consultantAddressId);
         if (consultantAddressToDelete == null){
             return false;
         }

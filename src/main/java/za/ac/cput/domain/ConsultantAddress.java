@@ -10,68 +10,83 @@ package za.ac.cput.domain;
 import java.util.Objects;
 
 public class ConsultantAddress {
-    private Consultant consultantId;
-    private Address addressId;
-
+    private String consultantAddressId;
+    private String consultantId;
+    private String addressId;
     public ConsultantAddress() {}
 
+    // Add private constructor
 
-    public ConsultantAddress(ConsultantAddress.Builder builder) {
+    private ConsultantAddress(ConsultantAddress.Builder builder) {
+        this.consultantAddressId = builder.consultantAddressId;
         this.consultantId = builder.consultantId;
         this.addressId = builder.addressId;
+
     }
 
-    public Consultant getConsultantId()  {
+    public String getConsultantAddressId() {
+        return consultantAddressId;
+    }
+
+    public String getConsultantId() {
         return consultantId;
     }
-
-    public Address getAddressId() {
+    public String addressId() {
         return addressId;
     }
 
-    public static class Builder{
-        private Consultant consultantId;
-        private Address addressId;
+    public static class Builder {
+        private String consultantAddressId;
+        private String consultantId;
+        private String addressId;
 
-        public Builder setConsultantId(Consultant consultantId) {
-            this.consultantId = consultantId;
+        // SETTERS
+        public ConsultantAddress.Builder setConsultantAddressId(String consultantAddressId) {
+            this.consultantAddressId = consultantAddressId;
             return this;
         }
 
-        public Builder setAddressId(Address addressId) {
+        public ConsultantAddress.Builder setConsultantId(String consultantId) {
+            this.consultantId = consultantId;
+            return this;
+        }
+        public ConsultantAddress.Builder setAddressId(String addressId) {
             this.addressId = addressId;
             return this;
         }
 
         public ConsultantAddress.Builder copy(ConsultantAddress consultantAddress) {
-            this.consultantId = consultantId;
-            this.addressId = addressId;
+            this.consultantAddressId = consultantAddress.consultantAddressId;
+            this.consultantId = consultantAddress.consultantId;
+            this.addressId = consultantAddress.addressId;
+
             return this;
         }
 
         public ConsultantAddress build() {
             return new ConsultantAddress(this);
         }
+    }
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            ConsultantAddress consultantAddress = (ConsultantAddress) o;
-            return Objects.equals(consultantId, consultantAddress.consultantId) && Objects.equals(addressId, consultantAddress.addressId);
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ConsultantAddress that = (ConsultantAddress) o;
+        return Objects.equals(consultantAddressId, that.consultantAddressId) && Objects.equals(consultantId, that.consultantId) && Objects.equals(addressId, that.addressId);
+    }
 
-        @Override
-        public int hashCode() {
-            return Objects.hash(consultantId,addressId);
-        }
+    @Override
+    public int hashCode() {
+        return Objects.hash(consultantAddressId, consultantId, addressId);
+    }
 
-        @Override
-        public String toString() {
-            return "Builder{" +
-                    "consultantId=" + consultantId +
-                    ", addressId=" + addressId +
-                    '}';
-        }
+    @Override
+    public String toString() {
+        return "ConsultantAddress{" +
+                "consultantAddressId='" + consultantAddressId + '\'' +
+                ", consultantId='" + consultantId + '\'' +
+                ", addressId='" + addressId + '\'' +
+                '}';
     }
 }
