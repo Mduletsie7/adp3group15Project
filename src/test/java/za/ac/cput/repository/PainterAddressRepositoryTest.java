@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.PainterAddress;
 import za.ac.cput.factory.PainterAddressFactory;
+import za.ac.cput.repository.impl.PainterAddressRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 

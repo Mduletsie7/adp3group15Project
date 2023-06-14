@@ -5,14 +5,15 @@
  * 07 April 2023
  */
 
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Consultant;
+import za.ac.cput.repository.IConsultantRepository;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class ConsultantRepository implements IConsultantRepository{
+public class ConsultantRepository implements IConsultantRepository {
     private static ConsultantRepository consultantRepositoryRepository = null;
     private Set<Consultant> consultantDB = null;
 

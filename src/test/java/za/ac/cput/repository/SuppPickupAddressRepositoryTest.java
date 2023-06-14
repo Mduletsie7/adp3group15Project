@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.SuppPickupAddress;
 import za.ac.cput.factory.SuppPickupAddressFactory;
+import za.ac.cput.repository.impl.SuppPickupAddressRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 

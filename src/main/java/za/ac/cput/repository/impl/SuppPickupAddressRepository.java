@@ -1,5 +1,6 @@
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 import za.ac.cput.domain.SuppPickupAddress;
+import za.ac.cput.repository.ISuppPickupAddress;
 
 import java.util.HashSet;
 import java.util.Set;

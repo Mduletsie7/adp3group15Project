@@ -4,13 +4,13 @@ Entity for the customer repository
 Author: Anesu Bandama(221295755)
 Date: 8 April 2023
 */
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Customer;
+import za.ac.cput.repository.ICustomerRepository;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 public class CustomerRepository implements ICustomerRepository {
     private static CustomerRepository repository = null;

@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.Job;
 import za.ac.cput.factory.JobFactory;
+import za.ac.cput.repository.impl.JobRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 

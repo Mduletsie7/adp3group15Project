@@ -5,9 +5,10 @@
  * 07 April 2023
  */
 
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Service;
+import za.ac.cput.repository.IServiceRepository;
 
 import java.util.HashSet;
 import java.util.Set;
