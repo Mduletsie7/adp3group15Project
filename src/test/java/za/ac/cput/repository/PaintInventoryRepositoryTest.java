@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.PaintInventory;
 import za.ac.cput.factory.PaintInventoryFactory;
+import za.ac.cput.repository.impl.PaintInventoryRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 

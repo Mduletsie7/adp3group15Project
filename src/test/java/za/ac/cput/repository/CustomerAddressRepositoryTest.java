@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.CustomerAddress;
 import za.ac.cput.factory.CustomerAddressFactory;
-import za.ac.cput.repository.CustomerAddressRepository;
+import za.ac.cput.repository.impl.CustomerAddressRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 

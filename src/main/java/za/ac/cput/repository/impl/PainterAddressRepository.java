@@ -5,14 +5,15 @@
  * 07 April 2023
  */
 
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.*;
+import za.ac.cput.repository.IPainterAddressRepository;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class PainterAddressRepository implements IPainterAddressRepository{
+public class PainterAddressRepository implements IPainterAddressRepository {
     private static PainterAddressRepository painterAddressRepository = null;
     private Set<PainterAddress> painterAddressDB = null;
 

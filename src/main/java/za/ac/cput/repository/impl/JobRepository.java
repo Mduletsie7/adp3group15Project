@@ -5,15 +5,16 @@
  * 07 April 2023
  */
 
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Job;
+import za.ac.cput.repository.IJobRepository;
 
 import java.util.HashSet;
 import java.util.Set;
 
 
-public class JobRepository implements IJobRepository{
+public class JobRepository implements IJobRepository {
     private static JobRepository jobRepository = null;
     private Set<Job> jobDB = null;
 

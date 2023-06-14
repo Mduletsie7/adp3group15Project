@@ -1,5 +1,6 @@
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 import za.ac.cput.domain.TransactionHistory;
+import za.ac.cput.repository.ITransactionRepository;
 
 import java.util.HashSet;
 import java.util.Set;

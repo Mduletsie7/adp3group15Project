@@ -1,6 +1,8 @@
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.PaintInventory;
+import za.ac.cput.repository.IPaintInventoryRepository;
+
 import java.util.HashSet;
 import java.util.Set;
 

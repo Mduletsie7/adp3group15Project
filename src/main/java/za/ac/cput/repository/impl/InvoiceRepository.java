@@ -5,15 +5,15 @@ Author: Anesu Bandama(221295755)
 Date: 8 April 2023
 */
 
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Invoice;
+import za.ac.cput.repository.IInvoiceRepository;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
-public class InvoiceRepository implements IInvoiceRepository{
+public class InvoiceRepository implements IInvoiceRepository {
         private static InvoiceRepository repository = null;
         private Set<Invoice> invoiceDB = null;
 

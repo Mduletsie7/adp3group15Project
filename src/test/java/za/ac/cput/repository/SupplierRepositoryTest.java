@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.Supplier;
 import za.ac.cput.factory.SupplierFactory;
+import za.ac.cput.repository.impl.SupplierRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 

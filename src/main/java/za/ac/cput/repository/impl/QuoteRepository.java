@@ -4,14 +4,15 @@ Entity for the quote repository
 Author: Anesu Bandama(221295755)
 Date: 8 April 2023
 */
-package za.ac.cput.repository;
+package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Quote;
+import za.ac.cput.repository.IQuoteRepository;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
-public class QuoteRepository implements IQuoteRepository{
+
+public class QuoteRepository implements IQuoteRepository {
     private static QuoteRepository repository = null;
     private Set<Quote> quoteDB = null;
 

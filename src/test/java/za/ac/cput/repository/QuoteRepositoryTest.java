@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.Quote;
 import za.ac.cput.factory.QuoteFactory;
-import za.ac.cput.repository.QuoteRepository;
+import za.ac.cput.repository.impl.QuoteRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
