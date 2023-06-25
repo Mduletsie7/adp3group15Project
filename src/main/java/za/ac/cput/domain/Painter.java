@@ -1,3 +1,9 @@
+/*
+ * Author: Mdumisi Kelvin Letsie
+ * Student No: 220120137
+ * Subject: Applications development practice 3
+ * */
+
 package za.ac.cput.domain;
 
 import java.util.Objects;
