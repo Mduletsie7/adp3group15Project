@@ -6,6 +6,7 @@ import za.ac.cput.service.ServiceService;
 
 import java.util.Set;
 
+@org.springframework.stereotype.Service
 public class ServiceServiceImpl implements ServiceService {
     private static ServiceServiceImpl service = null;
 

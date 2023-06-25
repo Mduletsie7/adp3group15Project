@@ -5,7 +5,7 @@ import za.ac.cput.repository.ISuppPickupAddress;
 import java.util.HashSet;
 import java.util.Set;
 
- class SuppPickupAddressRepository implements ISuppPickupAddress {
+ public class SuppPickupAddressRepository implements ISuppPickupAddress {
      private static SuppPickupAddressRepository suppPickupAddressRepository = null;
      private Set<SuppPickupAddress> suppPickupAddressDB = null;
 

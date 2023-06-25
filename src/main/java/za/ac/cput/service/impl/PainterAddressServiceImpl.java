@@ -1,11 +1,13 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.PainterAddress;
 import za.ac.cput.repository.impl.PainterAddressRepository;
 import za.ac.cput.service.PainterAddressService;
 
 import java.util.Set;
 
+@Service
 public class PainterAddressServiceImpl implements PainterAddressService {
 
     private static PainterAddressServiceImpl service = null;

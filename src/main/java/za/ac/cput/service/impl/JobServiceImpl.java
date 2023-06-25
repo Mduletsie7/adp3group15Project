@@ -1,11 +1,13 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Job;
 import za.ac.cput.repository.impl.JobRepository;
 import za.ac.cput.service.JobService;
 
 import java.util.Set;
 
+@Service
 public class JobServiceImpl implements JobService {
 
     private static JobServiceImpl service = null;
@@ -14,7 +16,7 @@ public class JobServiceImpl implements JobService {
 
     private JobServiceImpl() { repository = JobRepository.getRepository(); }
 
-    public static  JobServiceImpl getService() {
+    public static JobServiceImpl getService() {
         if (service == null) {
             service = new JobServiceImpl();
         }
