@@ -1,49 +1,58 @@
+/**
+ * JobServiceImpl.java
+ * This is the JobServiceImpl Class
+ * @author Mdumisi Kelvin Letsie - 220120137
+ * 11 August 2023
+ */
+
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Job;
-import za.ac.cput.repository.impl.JobRepository;
+import za.ac.cput.repository.IJobRepository;
 import za.ac.cput.service.JobService;
 
-import java.util.Set;
+import java.util.List;
 
 @Service
 public class JobServiceImpl implements JobService {
 
-    private static JobServiceImpl service = null;
+    private IJobRepository repository;
 
-    private static JobRepository repository = null;
-
-    private JobServiceImpl() { repository = JobRepository.getRepository(); }
-
-    public static JobServiceImpl getService() {
-        if (service == null) {
-            service = new JobServiceImpl();
-        }
-        return service;
+    @Autowired
+    private JobServiceImpl(IJobRepository repository) {
+        this.repository = repository;
     }
 
     @Override
     public Job create(Job job) {
-        Job created = repository.create(job);
-        return created;
+        return this.repository.save(job);
     }
 
-    public Job read(String jobNo) {
-        Job readJob = repository.read(jobNo);
-        return readJob;
+    @Override
+    public Job read(String jobId) {
+        return this.repository.findById(jobId).orElse(null);
     }
 
+    @Override
     public Job update(Job job) {
-        Job updated = repository.update(job);
-        return updated;
+        if (this.repository.existsById(job.getJobId()))
+            return this.repository.save(job);
+        return null;
     }
 
-    public boolean delete(String jobNo) {
-        boolean success = repository.delete(jobNo);
-        return success;
+    @Override
+    public boolean delete(String jobId) {
+        if (this.repository.existsById(jobId)) {
+            this.repository.deleteById(jobId);
+            return true;
+        }
+        return false;
     }
 
-    public Set<Job> getAll() {return repository.getAll();}
+    @Override
+    public List<Job> getAll() {
+        return this.repository.findAll();
+    }
 }
-

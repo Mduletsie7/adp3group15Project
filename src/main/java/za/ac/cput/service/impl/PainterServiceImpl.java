@@ -1,48 +1,58 @@
+/**
+ * PainterServiceImpl.java
+ * This is the PainterServiceImpl Class
+ * @author Mdumisi Kelvin Letsie - 220120137
+ * 09 August 2023
+ */
+
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Painter;
-import za.ac.cput.repository.impl.PainterRepository;
+import za.ac.cput.repository.IPainterRepository;
 import za.ac.cput.service.PainterService;
 
-import java.util.Set;
+import java.util.List;
 
 @Service
 public class PainterServiceImpl implements PainterService {
 
-    private static PainterServiceImpl service = null;
+    private IPainterRepository repository;
 
-    private static PainterRepository repository = null;
+    @Autowired
+    private PainterServiceImpl(IPainterRepository repository) {
+        this.repository = repository; }
 
-    private PainterServiceImpl() { repository = PainterRepository.getRepository(); }
-
-    public static  PainterServiceImpl getService() {
-        if (service == null) {
-            service = new PainterServiceImpl();
-        }
-        return service;
-    }
 
     @Override
     public Painter create(Painter painter) {
-        Painter created = repository.create(painter);
-        return created;
+        return this.repository.save(painter);
     }
 
+    @Override
     public Painter read(String painterId) {
-        Painter readPainter = repository.read(painterId);
-        return readPainter;
+        return this.repository.findById(painterId).orElse(null);
     }
 
+    @Override
     public Painter update(Painter painter) {
-        Painter updated = repository.update(painter);
-        return updated;
+        if (this.repository.existsById(painter.getPainterId()))
+            return this.repository.save(painter);
+        return null;
     }
 
+    @Override
     public boolean delete(String painterId) {
-        boolean success = repository.delete(painterId);
-        return success;
+        if (this.repository.existsById(painterId)) {
+            this.repository.deleteById(painterId);
+            return true;
+        }
+        return false;
     }
 
-    public Set<Painter> getAll() {return repository.getAll();}
+    @Override
+    public List<Painter> getAll() {
+        return this.repository.findAll();
+    }
 }
