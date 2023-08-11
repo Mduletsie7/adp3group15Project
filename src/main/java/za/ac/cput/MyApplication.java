@@ -3,14 +3,15 @@ package za.ac.cput;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-
+@RestController
 @SpringBootApplication
 public class MyApplication {
 
-    @RequestMapping({"/","/home"} )
+    @RequestMapping("/home")
     String home() {
-        return "Welcome Home!";
+        return "Welcome to homepage";
     }
 
     public static void main(String[] args) {
@@ -18,5 +19,7 @@ public class MyApplication {
     }
 
 }
+
+
 
 

@@ -1,38 +1,61 @@
-/*
- * Author: Mdumisi Kelvin Letsie
- * Student No: 220120137
- * Subject: Applications development practice 3
- * */
+/**
+ * JobFactory.java
+ * This is the JobFactory Class
+ * @author Mdumisi Kelvin Letsie - 220120137
+ * 11 August 2023
+ */
 
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 
+@Entity
 public class Job {
 
 
-    private String quoteNo;
+    @Id
+    private String jobId;
+    private String projectId;
+    private String jobName;
+    private String jobDescription;
     private String startDate;
     private String endDate;
-    private String invoiceNo;
-    private String painterId;
-    private String jobNo;
+    private String status;
+
 
     public Job() {}
 
     // Add private constructor
 
     private Job(Builder builder) {
-        this.quoteNo = builder.quoteNo;
+        this.jobId = builder.jobId;
+        this.projectId = builder.projectId;
+        this.jobName = builder.jobName;
+        this.jobDescription = builder.jobDescription;
         this.startDate = builder.startDate;
         this.endDate = builder.endDate;
-        this.invoiceNo = builder.invoiceNo;
-        this.painterId = builder.painterId;
-        this.jobNo = builder.jobNo;
+        this.status = builder.status;
     }
 
-    public String getQuote() {
-        return quoteNo;
+    // GETTERS
+
+    public String getJobId() {
+        return jobId;
+    }
+
+    public String getProjectId() {
+        return projectId;
+    }
+
+    public String getJobName() {
+        return jobName;
+    }
+
+    public String getJobDescription() {
+        return jobDescription;
     }
 
     public String getStartDate() {
@@ -43,64 +66,58 @@ public class Job {
         return endDate;
     }
 
-    public String getInvoiceNo()  {
-        return invoiceNo;
-    }
-    public String getPainterId() {
-        return painterId;
-    }
-
-    public String getJobNo() {
-        return jobNo;
+    public String getStatus() {
+        return status;
     }
 
     public static class Builder {
-        private String quoteNo;
+        private String jobId;
+        private String projectId;
+        private String jobName;
+        private String jobDescription;
         private String startDate;
         private String endDate;
-        private  String invoiceNo;
-        private  String painterId;
-        private  String jobNo;
-
+        private String status;
 
         // SETTERS
-        public Builder setQuoteNo(String quoteNo) {
-            this.quoteNo = quoteNo;
+
+        public Builder setJobId(String jobId) {
+            this.jobId = jobId;
             return this;
         }
-
+        public Builder setProjectId(String projectId) {
+            this.projectId = Builder.this.projectId;
+            return this;
+        }
+        public Builder setJobName(String jobName) {
+            this.jobName = Builder.this.jobName;
+            return this;
+        }
+        public Builder setJobDescription(String jobDescription) {
+            this.jobDescription = Builder.this.jobDescription;
+            return this;
+        }
         public Builder setStartDate(String startDate) {
-            this.startDate = startDate;
+            this.startDate = Builder.this.startDate;
             return this;
         }
-
         public Builder setEndDate(String endDate) {
-            this.endDate = endDate;
+            this.endDate = Builder.this.endDate;
+            return this;
+        }
+        public Builder setStatus(String status) {
+            this.status = Builder.this.status;
             return this;
         }
 
-        public Builder setInvoiceNo(String invoiceNo) {
-            this.invoiceNo = invoiceNo;
-            return this;
-        }
-
-        public Builder setPainterId(String painterId) {
-            this.painterId = painterId;
-            return this;
-        }
-
-        public Builder setJobNo(String jobNo) {
-            this.jobNo = jobNo;
-            return this;
-        }
-
-        public Builder copy(Job job) {
-            this.quoteNo = job.quoteNo;
+        private Builder copy(Job job) {
+            this.jobId = job.jobId;
+            this.projectId = job.projectId;
+            this.jobName = job.jobName;
+            this.jobDescription = job.jobDescription;
             this.startDate = job.startDate;
             this.endDate = job.endDate;
-            this.invoiceNo = job.invoiceNo;
-            this.painterId = job.painterId;
-            this.jobNo = job.jobNo;
+            this.status = job.status;
             return this;
         }
 
@@ -114,23 +131,24 @@ public class Job {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
-        return Objects.equals(quoteNo, job.quoteNo) && Objects.equals(startDate, job.startDate) && Objects.equals(endDate, job.endDate) && Objects.equals(invoiceNo, job.invoiceNo) && Objects.equals(painterId, job.painterId) && Objects.equals(jobNo, job.jobNo);
+        return Objects.equals(jobId, job.jobId) && Objects.equals(projectId, job.projectId) && Objects.equals(jobName, job.jobName) && Objects.equals(jobDescription, job.jobDescription) && Objects.equals(startDate, job.startDate) && Objects.equals(endDate, job.endDate) && Objects.equals(status, job.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(quoteNo, startDate, endDate, invoiceNo, painterId, jobNo);
+        return Objects.hash(jobId, projectId, jobName, jobDescription, startDate, endDate, status);
     }
 
     @Override
     public String toString() {
         return "Job{" +
-                "quote='" + quoteNo + '\'' +
+                "jobId='" + jobId + '\'' +
+                ", projectId='" + projectId + '\'' +
+                ", jobName='" + jobName + '\'' +
+                ", jobDescription='" + jobDescription + '\'' +
                 ", startDate='" + startDate + '\'' +
                 ", endDate='" + endDate + '\'' +
-                ", invoice='" + invoiceNo + '\'' +
-                ", painterId='" + painterId + '\'' +
-                ", jobNo='" + jobNo + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }

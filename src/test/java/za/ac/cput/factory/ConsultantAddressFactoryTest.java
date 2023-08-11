@@ -10,7 +10,6 @@ package za.ac.cput.factory;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.ConsultantAddress;
-import za.ac.cput.domain.PainterAddress;
 
 import java.time.Duration;
 
