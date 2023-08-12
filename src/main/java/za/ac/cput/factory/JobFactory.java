@@ -2,7 +2,7 @@
  * JobFactory.java
  * This is the JobFactory Class
  * @author Mdumisi Kelvin Letsie - 220120137
- * 07 April 2023
+ * 11 August 2023
  */
 
 package za.ac.cput.factory;
@@ -11,26 +11,26 @@ import za.ac.cput.domain.Job;
 import za.ac.cput.util.Helper;
 
 public class JobFactory {
-    public static Job createJob(String quoteNo, String startDate, String endDate, String invoiceNo, String painterId) {
-        if (Helper.isNullOrEmpty(quoteNo) || Helper.isNullOrEmpty(startDate) || Helper.isNullOrEmpty(endDate) || Helper.isNullOrEmpty(invoiceNo)
-                || Helper.isNullOrEmpty(painterId)) {
+    public static Job createJob(String projectId, String jobName, String jobDescription, String startDate, String endDate, String status) {
+        if (Helper.isNullOrEmpty(projectId) || Helper.isNullOrEmpty(jobName) || Helper.isNullOrEmpty(jobDescription) || Helper.isNullOrEmpty(startDate)
+                || Helper.isNullOrEmpty(endDate) || Helper.isNullOrEmpty(status)) {
             return null;
         }
 
-        String jobNo = Helper.generateJobNumber();
+        String jobId = Helper.generateJobNumber();
 
 
         Job job = new Job.Builder()
-                .setQuoteNo(quoteNo)
+                .setJobId(jobId)
+                .setProjectId(projectId)
+                .setJobName(jobName)
+                .setJobDescription(jobDescription)
                 .setStartDate(startDate)
                 .setEndDate(endDate)
-                .setInvoiceNo(invoiceNo)
-                .setPainterId(painterId)
-                .setJobNo(jobNo)
+                .setStatus(status)
                 .build();
 
         return job;
-
 
     }
 }
