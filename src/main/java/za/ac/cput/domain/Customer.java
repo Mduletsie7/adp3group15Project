@@ -7,17 +7,19 @@ Date: 8 April 2023
 
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
-
+@Entity
 public class Customer {
-
-
+    @Id
+    private String addressId;
     private String customerId;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String emailAddress;
-    private String addressId;
 
     public Customer() {}
 
