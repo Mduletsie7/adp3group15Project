@@ -1,3 +1,10 @@
+/**
+ * PaymentServiceImpl.java
+ * This is the Consultant POJO
+ * @author Lerato Moshabi - 220076073
+ * 14 August 2023
+ */
+
 package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
