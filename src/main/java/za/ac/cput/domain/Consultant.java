@@ -7,15 +7,19 @@
 
 package za.ac.cput.domain;
 
-import java.util.Objects;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+import java.util.Objects;
+@Entity
 public class Consultant {
+    @Id
+    private String consultantId;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String email;
     private String address;
-    private String consultantId;
 
     public Consultant() {}
 
