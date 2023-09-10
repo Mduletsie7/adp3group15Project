@@ -2,11 +2,11 @@ package za.ac.cput.service;
 
 public interface IService <T, ID> {
 
-    T create(T t);
+    public T create(T t);
 
-    T read(ID id);
+    public T read(ID id);
 
-    T update(T t);
+    public T update(T t);
 
-    boolean delete(ID id);
+    public boolean delete(ID id);
 }
