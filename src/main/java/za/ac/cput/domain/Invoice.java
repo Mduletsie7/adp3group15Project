@@ -2,19 +2,21 @@
 Invoice.java
 Entity for the invoice
 Author: Anesu Bandama(221295755)
-Date: 8 April 2023
+Date: 10 September 2023
 */
 package za.ac.cput.domain;
 
-import java.util.Objects;
-
+//@Entity
+//@Table(name = "invoice")
 public class Invoice {
-
+/*
+    @Id
     private String invoiceNumber;
-    private String quoteNumber;
+    @OneToOne
+    @JoinColumn(name = "project_id", referencedColumnName = "project_id")
+    private Project projectId;
     private String issueDate;
-
-    private int amountPaid;
+    private double amountPaid;
 
     public Invoice() {}
 
@@ -22,7 +24,7 @@ public class Invoice {
 
     private Invoice(Builder builder) {
         this.invoiceNumber = builder.invoiceNumber;
-        this.quoteNumber = builder.quoteNumber;
+        this.projectId = builder.projectId;
         this.issueDate = builder.issueDate;
         this.amountPaid = builder.amountPaid;
     }
@@ -31,24 +33,23 @@ public class Invoice {
         return invoiceNumber;
     }
 
-    public String getQuoteNumber() {
-        return quoteNumber;
+    public Project getProjectId() {
+        return projectId;
     }
 
     public String getIssueDate() {
         return issueDate;
     }
 
-    public int getAmountPaid() {
+    public double getAmountPaid() {
         return amountPaid;
     }
 
     public static class Builder {
         private String invoiceNumber;
-        private String quoteNumber;
+        private Project projectId;
         private String issueDate;
-
-        private int amountPaid;
+        private double amountPaid;
 
         // SETTERS
 
@@ -57,8 +58,8 @@ public class Invoice {
             return this;
         }
 
-        public Builder setQuoteNumber(String quoteNumber) {
-            this.quoteNumber = quoteNumber;
+        public Builder setProjectId(Project projectId) {
+            this.projectId = projectId;
             return this;
         }
 
@@ -67,14 +68,14 @@ public class Invoice {
             return this;
         }
 
-        public Builder setAmountPaid(int amountPaid) {
+        public Builder setAmountPaid(double amountPaid) {
             this.amountPaid = amountPaid;
             return this;
         }
 
         public Builder copy(Invoice invoice) {
             this.invoiceNumber = invoice.invoiceNumber;
-            this.quoteNumber = invoice.quoteNumber;
+            this.projectId = invoice.projectId;
             this.issueDate = invoice.issueDate;
             this.amountPaid = invoice.amountPaid;
             return this;
@@ -86,28 +87,25 @@ public class Invoice {
     }
 
     @Override
-    public boolean equals(Object i) {
-        if (this == i) return true;
-        if (i == null || getClass() != i.getClass()) return false;
-        Invoice invoice = (Invoice) i;
-        return Objects.equals(invoiceNumber, invoice.invoiceNumber) &&
-                Objects.equals(quoteNumber, invoice.quoteNumber) &&
-                Objects.equals(issueDate, invoice.issueDate) &&
-                Objects.equals(amountPaid, invoice.amountPaid);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Invoice invoice)) return false;
+        return getAmountPaid() == invoice.getAmountPaid() && Objects.equals(getInvoiceNumber(), invoice.getInvoiceNumber()) && Objects.equals(getProjectId(), invoice.getProjectId()) && Objects.equals(getIssueDate(), invoice.getIssueDate());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(invoiceNumber, quoteNumber, issueDate, amountPaid);
+        return Objects.hash(getInvoiceNumber(), getProjectId(), getIssueDate(), getAmountPaid());
     }
 
     @Override
     public String toString() {
         return "Invoice{" +
                 "invoiceNumber='" + invoiceNumber + '\'' +
-                ", quoteNumber='" + quoteNumber + '\'' +
+                ", projectId=" + projectId +
                 ", issueDate='" + issueDate + '\'' +
                 ", amountPaid=" + amountPaid +
                 '}';
     }
+ */
 }
