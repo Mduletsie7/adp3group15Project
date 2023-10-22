@@ -2,43 +2,46 @@ package za.ac.cput.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class HomeController {
 
-    @GetMapping("/")
-    public String getOpen() {
-        return "homePage";
+
+    @RequestMapping("/")
+    public RedirectView localRedirect() {
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("http://localhost:3000");
+        return redirectView;
     }
 
-    @GetMapping("/home")
-    public String getHomePage() {
-        return "homePage";
+    @RequestMapping("/welcome")
+    public RedirectView welcomeRedirect() {
+        RedirectView redirectView = new RedirectView();
+        redirectView.setUrl("http://localhost:3000");
+        return redirectView;
     }
 
-    @GetMapping("/welcome")
-    public String getWelcomePage() {
-        return "welcomePage";
-    }
+//    @GetMapping("/")
+//    public String getOpen() {
+//        return "homePage";
+//    }
+
+//    @GetMapping("/home")
+//    public String getHomePage() {
+//        return "";
+//    }
+
 
     @GetMapping("/admin")
     public String getAdminPage() {
         return "adminPage";
     }
 
-    @GetMapping("/emp")
-    public String getEmployeePage() {
-        return "empPage";
-    }
-
-    @GetMapping("/mgr")
-    public String getManagerPage() {
-        return "mgrPage";
-    }
-
-    @GetMapping("/hr")
-    public String getHrPage() {
-        return "hrPage";
+    @GetMapping("/painter")
+    public String getPainterPage() {
+        return "painterPage";
     }
 
     @GetMapping("/common")
