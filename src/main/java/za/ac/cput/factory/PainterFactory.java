@@ -11,7 +11,7 @@ import za.ac.cput.domain.Painter;
 import za.ac.cput.util.Helper;
 
 public class PainterFactory {
-    public static Painter createPainter(String firstName, String lastName, String phoneNumber, String email, String streetAddress, String city, String province, String postalCode) {
+    public static Painter createPainter(String firstName, String lastName, String phoneNumber, String email, String streetAddress, String city, String province, String postalCode, String description) {
         if (Helper.isNullOrEmpty(firstName) || Helper.isNullOrEmpty(lastName) || Helper.isNullOrEmpty(phoneNumber)) {
             return null;
         }
@@ -32,6 +32,7 @@ public class PainterFactory {
                 .setCity(city)
                 .setProvince(province)
                 .setPostalCode(postalCode)
+                .setDescription(description)
                 .build();
 
         return painter;
