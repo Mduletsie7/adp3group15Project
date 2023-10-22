@@ -1,15 +1,20 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 /*
-* Author: Ayanda Mcengwa
-* Student No: 218335989
-* Subject: Applications development practice 3
-* Assignment 1
-* due date: 09/04/2023
-* */
-
+ * Author: Ayanda Mcengwa
+ * Student No: 218335989
+ * Subject: Applications development practice 3
+ * Term 4 Submission
+ * This is the Supplier Domain layer it represents a tables inside a database
+ * due date: 22/10/2023
+ * */
+@Entity
 public class Supplier {
+    @Id
     private static String supplierId;
     private static String companyName;
     private static String phoneNumber;
@@ -84,7 +89,7 @@ public class Supplier {
         if(this == obj) return true;
         if(obj == null || getClass() !=obj.getClass()) return false;
         Supplier supplier = (Supplier) obj;
-        return Objects.equals(supplierId, supplier.supplierId)&& Objects.equals(companyName, supplier.companyName)&& Objects.equals(phoneNumber, supplier.phoneNumber)&& Objects.equals(emailAddress, supplier.emailAddress) && Objects.equals(pickupAddress, supplier.pickupAddress);
+        return true;
     }
 
     @Override
