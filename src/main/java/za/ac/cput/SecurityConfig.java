@@ -12,7 +12,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-@EnableWebSecurity
 @Configuration
 public class SecurityConfig {
 
@@ -26,7 +25,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http.authorizeHttpRequests()
-                .requestMatchers("/","/home","/register","/saveUser").permitAll()
+                .requestMatchers("/","/home","/register","/saveUser", "/painter/*").permitAll()
                 .requestMatchers("/welcome").authenticated()
                 .requestMatchers("/admin").hasAuthority("Admin")
                 .requestMatchers("/painter").hasAuthority("Painter")
