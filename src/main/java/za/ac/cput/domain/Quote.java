@@ -2,21 +2,25 @@
 Quote.java
 Entity for the quote
 Author: Anesu Bandama(221295755)
-Date: 8 April 2023
+Date: 10 September 2023
 */
 package za.ac.cput.domain;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 
+@Entity
 public class Quote {
-
+    @Id
     private String quoteNumber;
-    private String businessName;
-    private String businessAddress;
     private String issueDate;
     private String expiryDate;
-    private String description;
-    private int totalCost;
+    private double totalCost;
+    private boolean status;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
+    private Customer customerId;
 
     public Quote() {}
 
@@ -24,24 +28,15 @@ public class Quote {
 
     private Quote(Builder builder) {
         this.quoteNumber = builder.quoteNumber;
-        this.businessName = builder.businessName;
-        this.businessAddress = builder.businessAddress;
         this.issueDate = builder.issueDate;
         this.expiryDate = builder.expiryDate;
-        this.description = builder.description;
         this.totalCost = builder.totalCost;
+        this.status = builder.status;
+        this.customerId = builder.customerId;
     }
 
     public String getQuoteNumber() {
         return quoteNumber;
-    }
-
-    public String getBusinessName() {
-        return businessName;
-    }
-
-    public String getBusinessAddress() {
-        return businessAddress;
     }
 
     public String getIssueDate() {
@@ -52,22 +47,26 @@ public class Quote {
         return expiryDate;
     }
 
-    public String getDescription() {
-        return description;
-    }
 
-    public int getTotalCost() {
+    public double getTotalCost() {
         return totalCost;
     }
+    public boolean isStatus() {
+        return status;
+    }
 
+    public Customer getCustomerId() {
+        return customerId;
+    }
     public static class Builder {
         private String quoteNumber;
-        private String businessName;
-        private String businessAddress;
         private String issueDate;
         private String expiryDate;
-        private String description;
-        private int totalCost;
+        private double totalCost;
+
+        private boolean status;
+
+        private Customer customerId;
 
 
         // SETTERS
@@ -75,16 +74,6 @@ public class Quote {
 
         public Builder setQuoteNumber(String quoteNumber) {
             this.quoteNumber = quoteNumber;
-            return this;
-        }
-
-        public Builder setBusinessName(String businessName) {
-            this.businessName = businessName;
-            return this;
-        }
-
-        public Builder setBusinessAddress(String businessAddress) {
-            this.businessAddress = businessAddress;
             return this;
         }
 
@@ -98,24 +87,28 @@ public class Quote {
             return this;
         }
 
-        public Builder setDescription(String description) {
-            this.description = description;
+        public Builder setTotalCost(double totalCost) {
+            this.totalCost = totalCost;
             return this;
         }
 
-        public Builder setTotalCost(int totalCost) {
-            this.totalCost = totalCost;
+        public Builder setStatus(boolean status) {
+            this.status = status;
+            return this;
+        }
+
+        public Builder setCustomerId(Customer customerId) {
+            this.customerId = customerId;
             return this;
         }
 
         public Builder copy(Quote quote) {
             this.quoteNumber = quote.quoteNumber;
-            this.businessName = quote.businessName;
-            this.businessAddress = quote.businessAddress;
             this.issueDate = quote.issueDate;
             this.expiryDate = quote.expiryDate;
-            this.description = quote.description;
+            this.status = quote.status;
             this.totalCost = quote.totalCost;
+            this.customerId = quote.customerId;
             return this;
         }
 
@@ -125,30 +118,26 @@ public class Quote {
     }
 
     @Override
-    public boolean equals(Object q) {
-        if (this == q) return true;
-        if (q == null || getClass() != q.getClass()) return false;
-        Quote quote = (Quote) q;
-        return Objects.equals(quoteNumber, quote.quoteNumber) && Objects.equals(businessName, quote.businessName) && Objects.equals(businessAddress, quote.businessAddress)
-                && Objects.equals(issueDate, quote.issueDate) && Objects.equals(expiryDate, quote.expiryDate) &&
-                Objects.equals(description, quote.description) && Objects.equals(totalCost, quote.totalCost);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Quote quote)) return false;
+        return getTotalCost() == quote.getTotalCost() && isStatus() == quote.isStatus() && Objects.equals(getQuoteNumber(), quote.getQuoteNumber()) && Objects.equals(getIssueDate(), quote.getIssueDate()) && Objects.equals(getExpiryDate(), quote.getExpiryDate()) && Objects.equals(getCustomerId(), quote.getCustomerId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(quoteNumber, businessName, businessAddress, issueDate, expiryDate, description, totalCost);
+        return Objects.hash(getQuoteNumber(), getIssueDate(), getExpiryDate(), getTotalCost(), isStatus(), getCustomerId());
     }
 
     @Override
     public String toString() {
         return "Quote{" +
                 "quoteNumber='" + quoteNumber + '\'' +
-                ", businessName='" + businessName + '\'' +
-                ", businessAddress='" + businessAddress + '\'' +
                 ", issueDate='" + issueDate + '\'' +
                 ", expiryDate='" + expiryDate + '\'' +
-                ", description='" + description + '\'' +
                 ", totalCost=" + totalCost +
+                ", status=" + status +
+                ", customerId=" + customerId +
                 '}';
     }
 }
