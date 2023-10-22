@@ -7,14 +7,7 @@ import za.ac.cput.domain.Supplier;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*
- * Author: Ayanda Mcengwa
- * Student No: 218335989
- * Subject: Applications development practice 3
- * Term 4 Submission
- * This is the Supplier Factory test, it tests if supplier factory works fine
- * due date: 22/10/2023
- * */
+
 class SupplierFactoryTest {
     //1. Testing Object identity
     @Test
