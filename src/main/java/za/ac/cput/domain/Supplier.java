@@ -1,5 +1,8 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
 /*
 * Author: Ayanda Mcengwa
@@ -8,17 +11,18 @@ import java.util.Objects;
 * Assignment 1
 * due date: 09/04/2023
 * */
-
+@Entity
 public class Supplier {
-    private static String supplierId;
-    private static String companyName;
-    private static String phoneNumber;
-    private static String emailAddress;
-    private static String pickupAddress;
+    @Id
+    private String supplierId;
+    private String companyName;
+    private String phoneNumber;
+    private String emailAddress;
+    private String pickupAddress;
 
     public Supplier() {
     }
-    public Supplier(Builder builder) {
+    private Supplier(Builder builder) {
         this.supplierId = builder.supplierId;
         this.companyName = builder.companyName;
         this.phoneNumber = builder.phoneNumber;
