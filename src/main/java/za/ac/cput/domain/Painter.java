@@ -25,6 +25,8 @@ public class Painter {
     private String province;
     private String postalCode;
 
+    private String description;
+
     public Painter() {}
 
     // Add private constructor
@@ -39,6 +41,7 @@ public class Painter {
         this.city = builder.city;
         this.province = builder.province;
         this.postalCode = builder.postalCode;
+        this.description = builder.description;
     }
 
     // GETTERS
@@ -61,6 +64,10 @@ public class Painter {
     public String getProvince()  {return province; }
     public String getPostalCode()  {return postalCode; }
 
+    public String getDescription(){
+        return description;
+    }
+
 
     public static class Builder {
         private String painterId;
@@ -72,6 +79,8 @@ public class Painter {
         private String city;
         private String province;
         private String postalCode;
+
+        private String description;
 
 
         // SETTERS
@@ -120,6 +129,11 @@ public class Painter {
             return this;
         }
 
+        public Builder setDescription(String description){
+            this.description = description;
+            return this;
+        }
+
 
         public Builder copy(Painter painter) {
             this.painterId = painter.painterId;
@@ -131,6 +145,7 @@ public class Painter {
             this.city = painter.city;
             this.province = painter.province;
             this.postalCode = painter.postalCode;
+            this.description = painter.description;
             return this;
         }
 
@@ -142,14 +157,13 @@ public class Painter {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Painter painter = (Painter) o;
-        return Objects.equals(painterId, painter.painterId) && Objects.equals(firstName, painter.firstName) && Objects.equals(lastName, painter.lastName) && Objects.equals(phoneNumber, painter.phoneNumber) && Objects.equals(email, painter.email) && Objects.equals(streetAddress, painter.streetAddress) && Objects.equals(city, painter.city) && Objects.equals(province, painter.province) && Objects.equals(postalCode, painter.postalCode);
+        if (!(o instanceof Painter painter)) return false;
+        return Objects.equals(getPainterId(), painter.getPainterId()) && Objects.equals(getFirstName(), painter.getFirstName()) && Objects.equals(getLastName(), painter.getLastName()) && Objects.equals(getPhoneNumber(), painter.getPhoneNumber()) && Objects.equals(getEmail(), painter.getEmail()) && Objects.equals(getStreetAddress(), painter.getStreetAddress()) && Objects.equals(getCity(), painter.getCity()) && Objects.equals(getProvince(), painter.getProvince()) && Objects.equals(getPostalCode(), painter.getPostalCode()) && Objects.equals(getDescription(), painter.getDescription());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(painterId, firstName, lastName, phoneNumber, email, streetAddress, city, province, postalCode);
+        return Objects.hash(getPainterId(), getFirstName(), getLastName(), getPhoneNumber(), getEmail(), getStreetAddress(), getCity(), getProvince(), getPostalCode(), getDescription());
     }
 
     @Override
@@ -164,6 +178,7 @@ public class Painter {
                 ", city='" + city + '\'' +
                 ", province='" + province + '\'' +
                 ", postalCode='" + postalCode + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 }

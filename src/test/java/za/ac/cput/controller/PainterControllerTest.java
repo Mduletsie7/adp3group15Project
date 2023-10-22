@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PainterControllerTest {
 
-private static Painter painter = PainterFactory.createPainter("Mdu Kelvin", "Letsie", "0676808676", "mdu.letsie7@gmail.com", "7 De Grendel Road", "Cape Town", "WC", "7441");
+private static Painter painter = PainterFactory.createPainter("Mdu Kelvin", "Letsie", "0676808676", "mdu.letsie7@gmail.com", "7 De Grendel Road", "Cape Town", "WC", "7441", "A good painter");
 
 @Autowired
 private TestRestTemplate restTemplate;
