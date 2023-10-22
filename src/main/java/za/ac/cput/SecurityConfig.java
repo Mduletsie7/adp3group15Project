@@ -29,10 +29,9 @@ public class SecurityConfig {
                 .requestMatchers("/","/home","/register","/saveUser").permitAll()
                 .requestMatchers("/welcome").authenticated()
                 .requestMatchers("/admin").hasAuthority("Admin")
-                .requestMatchers("/mgr").hasAuthority("Manager")
-                .requestMatchers("/emp").hasAuthority("Employee")
-                .requestMatchers("/hr").hasAuthority("HR")
-                .requestMatchers("/common").hasAnyAuthority("Employeee", "Manager", "Admin")
+                .requestMatchers("/painter").hasAuthority("Painter")
+                .requestMatchers("/customer").hasAuthority("Customer")
+                .requestMatchers("/common").hasAnyAuthority("Painter", "Customer", "Admin")
                 .anyRequest().authenticated()
 
                 .and()

@@ -14,11 +14,10 @@ Email:    <input type="text" name="email"/>
 
 Password: <input type="password" name="password"/>
 
-Role(s): <input type="checkbox" name="roles" value="Admin"/>Admin
-         <input type="checkbox" name="roles" value="Manager"/>Manager
- 	 <input type="checkbox" name="roles" value="HR"/>HR
-	 <input type="checkbox" name="roles" value="Employee"/>Employee
-<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+Role(s):
+    <input type="checkbox" name="roles" value="Painter"/>Painter
+ 	 <input type="checkbox" name="roles" value="Customer"/>Customer
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
     <input type="submit" value="Register"/>
 
 </pre>
