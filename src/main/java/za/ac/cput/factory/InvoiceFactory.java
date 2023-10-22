@@ -1,17 +1,12 @@
-/*
-InvoiceFactory.java
-Entity for the invoice factory
-Author: Anesu Bandama(221295755)
-Date: 10 September 2023
-*/
-
 package za.ac.cput.factory;
 
 
+import za.ac.cput.domain.Invoice;
+import za.ac.cput.util.Helper;
+
 public class InvoiceFactory {
-    /*
-    public static Invoice createInvoice(Project projectId, String issueDate, double amountPaid){
-        if(isNull(projectId) || Helper.isNullOrEmpty(issueDate) || !Helper.dateCheck(issueDate) || amountPaid <= 0 ){
+    public static Invoice createInvoice(String quoteNumber, String issueDate, int amountPaid){
+        if(Helper.isNullOrEmpty(quoteNumber) || Helper.isNullOrEmpty(issueDate) || amountPaid <= 0 ){
             return null;
         }
 
@@ -19,13 +14,11 @@ public class InvoiceFactory {
 
         Invoice invoice = new Invoice.Builder()
                 .setInvoiceNumber(invoiceNumber)
-                .setProjectId(projectId)
+                .setQuoteNumber(quoteNumber)
                 .setIssueDate(issueDate)
                 .setAmountPaid(amountPaid)
                 .build();
 
         return invoice;
     }
-
-     */
 }

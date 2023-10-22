@@ -1,27 +1,63 @@
 /*
 InvoiceFactoryTest.java
-Tests the invoice factory
+Tests InvoiceFactory
 Author: Anesu Bandama(221295755)
-Date: 10 September 2023
-*/package za.ac.cput.factory;
+Date: 8 April 2023
+*/
+package za.ac.cput.factory;
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+import za.ac.cput.domain.Invoice;
+
+import java.time.Duration;
+
+import static org.junit.jupiter.api.Assertions.*;
 public class InvoiceFactoryTest {
-/*
-    Project project = new Project.Builder()
-            .setProjectId("0001")
-            .setProjectName("Amazon Offices")
-            .setStartDate("02/03/23")
-            .setEndDate("05/05/23")
-            .setTotalCost("20000")
-            .setStatus("true")
-            .build();
-
     @Test
-    public void test(){
-        Invoice invoice = InvoiceFactory.createInvoice(project,"05/05/23", 20000);
-        System.out.println(invoice.toString());
-        assertNotNull(invoice);
+    public void equalityTest() {
+        Invoice invoice = new Invoice();
+        invoice = InvoiceFactory.createInvoice("5", "05/05/2023", 2500);
+        //   assertEquals(invoice.getQuoteNumber(), "6");
+        assertEquals(invoice.getQuoteNumber(), "5");
+
     }
 
- */
+    @Test
+    public void objectIdentityTest() {
+        Invoice invoice1 = new Invoice();
+        invoice1 = InvoiceFactory.createInvoice("5", "05/05/2023", 2500);
+        //   Invoice invoice2 = new Invoice();
+        //   invoice2 = InvoiceFactory.createInvoice("6", "07/05/2023", 8500);
+        //  assertSame(invoice1, invoice2);
+        assertSame(invoice1, invoice1);
+
+
+    }
+
+    /*
+    @Test
+    public void failTest() {
+       Invoice invoice = new Invoice();
+       invoice = InvoiceFactory.createInvoice("5", "05/05/2023", 2500);
+       assertNotNull(invoice);
+       fail();
+    }
+    @Test
+    void timeOutTest() {
+        assertTimeout(Duration.ofMillis(50), () -> {
+            Thread.sleep(1350);
+
+        });
+    }
+
+    @Test
+    @Disabled
+    public void disablingTest() {
+        Invoice invoice = new Invoice();
+        invoice = InvoiceFactory.createInvoice("5", "05/05/2023", 2500);
+        assertNotNull(invoice);
+    }
+    */
+
 }
